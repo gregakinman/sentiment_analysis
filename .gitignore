@@ -1,0 +1,5 @@
+# OS files:
+.DS_Store
+
+# Stanford CoreNLP software (too big for GitHub; note made in README.md of this)
+phase_2/stanford-corenlp-full-2014-06-16/
