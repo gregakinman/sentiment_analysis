@@ -1,7 +1,7 @@
-This is the code for Greg Kinman's sentiment analysis project at Freescale.
+Sentiment Analysis
 ===
 
-There are three "phases" in the project pipeline:
+This is the code for the sentiment analysis project at Freescale. There are three "phases" in the project pipeline:
 ---
 
 - Phase 1: scraping the web for text data.
