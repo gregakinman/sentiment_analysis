@@ -1,13 +1,11 @@
 Sentiment Analysis
 ===
 
-This is the code for the sentiment analysis project at Freescale. It is maintained by [Greg Kinman](mailto:gregory.kinman@freescale.com). There are three "phases" in the project pipeline:
+This is the code for the sentiment analysis project at Freescale. It is maintained by [Greg Kinman](mailto:gregory.kinman@freescale.com). There are three "phases" in the project pipeline, and the subdirectories are titled accordingly.
 
 - Phase 1: scraping the web for text data.
 - Phase 2: labeling the data with sentiment.
 - Phase 3: analyzing the labeled data for patterns and EBI insight. Note that this phase is still under construction.
-
-The subdirectories are titled accordingly.
 
 Usage:
 ---
