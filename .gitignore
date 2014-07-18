@@ -3,3 +3,6 @@
 
 # Stanford CoreNLP software (too big for GitHub; note made in README.md of this)
 phase_2/stanford-corenlp-full-2014-06-16/
+
+# We don't need to publicize .csv files, as they're just data, and not really code.
+*.csv

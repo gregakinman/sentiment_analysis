@@ -2,9 +2,9 @@
 Greg Kinman - B48856
 Freescale Semiconductor, Inc.
 
-web_scraper.py
+past_scraper.py
 
-Scrapes the web.
+Scrapes the web from the past to the present.
 """
 
 import nltk, csv, pdb
@@ -14,10 +14,10 @@ from bs4 import BeautifulSoup as BS
 from nltk.tokenize.punkt import PunktSentenceTokenizer as ST
 
 GLOBAL_KEYWORDS = [
-                "freescale", "i.mx", "kinetis", "mpu", "mcu", "microcontroller", "microprocessor", "dsp", 
-                "digital signal processor", "analog", "rf", "radio frequency", "sensor", "iot", "internet of things", 
-                "ioe", "internet of everything", "pmic", "ti", "texas instruments", "qualcomm", "broadcom", 
-                "analog devices", "stm", "stmicroelectronics", "atmel", "cavium", "infineon", "intel", "maxell", 
+                "freescale", "i.mx", "kinetis", "mpu", "mcu", "microcontroller", "microprocessor", "dsp",
+                "digital signal processor", "analog", "rf", "radio frequency", "sensor", "iot", "internet of things",
+                "ioe", "internet of everything", "pmic", "ti", "texas instruments", "qualcomm", "broadcom",
+                "analog devices", "stm", "stmicroelectronics", "atmel", "cavium", "infineon", "intel", "maxell",
                 "microchip", "soc", "nxp", "nec", "renesas", "riotboard", "riot board"
 ]
 
@@ -291,7 +291,7 @@ def date_string_cleaner(soup, author):
     date_and_author = soup.get_text()
     date_posted_unformatted = date_and_author.replace(author, "")
     date_posted_unformatted = date_posted_unformatted.replace(",", "")
-    
+
     # Uses the datetime module to format the date nicely into a tuple.
     try:
         datetime_object = datetime.strptime(date_posted_unformatted.lstrip().rstrip(), "%b %d %Y %I:%M %p")
