@@ -7,15 +7,15 @@ snippet_labeler.py
 Labels the text snippets with their sentiment values.
 """
 
-import csv, subprocess, pdb, os
+import csv, subprocess, pdb, os, run_core_nlp
 from bs4 import BeautifulSoup as BS
 from nltk.tokenize.punkt import PunktSentenceTokenizer as ST
 
 def main():
 
     """
-    Operates on a .csv file in the current directory that contains sentences with commas removed, as well as other 
-    labeled data items about those sentences. Creates a new .csv file that has the sentiment values appended to the 
+    Operates on a .csv file in the current directory that contains sentences with commas removed, as well as other
+    labeled data items about those sentences. Creates a new .csv file that has the sentiment values appended to the
     original data (i.e., in a new rightmost column).
     """
 
@@ -40,7 +40,7 @@ def main():
     filenames = csv_to_txt(input_filename)
 
     # Runs CoreNLP.
-    subprocess.call("run_core_nlp.cmd")
+    run_core_nlp.main()
 
     # Parses NLP's .xml output to label the sentences.
     xml_to_csv(filenames, input_filename, output_filename)

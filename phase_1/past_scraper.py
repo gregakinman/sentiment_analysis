@@ -14,11 +14,12 @@ from bs4 import BeautifulSoup as BS
 from nltk.tokenize.punkt import PunktSentenceTokenizer as ST
 
 GLOBAL_KEYWORDS = [
-                "freescale", "i.mx", "kinetis", "mpu", "mcu", "microcontroller", "microprocessor", "dsp",
-                "digital signal processor", "analog", "rf", "radio frequency", "sensor", "iot", "internet of things",
-                "ioe", "internet of everything", "pmic", "ti", "texas instruments", "qualcomm", "broadcom",
-                "analog devices", "stm", "stmicroelectronics", "atmel", "cavium", "infineon", "intel", "maxell",
-                "microchip", "soc", "nxp", "nec", "renesas", "riotboard", "riot board"
+                    "freescale", "i.mx", "kinetis", "mpu", "mcu", "microcontroller", "microprocessor", "dsp",
+                    "digital signal processor", "analog", "rf", "radio frequency", "sensor", "iot",
+                    "internet of things", "ioe", "internet of everything", "pmic", "ti", "texas instruments",
+                    "qualcomm", "broadcom", "analog devices", "stm", "stmicroelectronics", "atmel", "cavium",
+                    "infineon", "intel", "maxell", "microchip", "soc", "nxp", "nec", "renesas", "riotboard",
+                    "riot board"
 ]
 
 def main():
