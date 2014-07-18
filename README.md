@@ -3,11 +3,20 @@ Sentiment Analysis
 
 This is the code for the sentiment analysis project at Freescale. It is maintained by [Greg Kinman](mailto:gregory.kinman@freescale.com). There are three "phases" in the project pipeline:
 
-- Phase 1: scraping the web for text data. Feel free to change the search keywords for scraping to search for buzz about different terms.
+- Phase 1: scraping the web for text data.
 - Phase 2: labeling the data with sentiment.
 - Phase 3: analyzing the labeled data for patterns and EBI insight. Note that this phase is still under construction.
 
 The subdirectories are titled accordingly.
+
+Usage:
+---
+
+`past_scraper.py` is the script for scraping text data from the web from the past up until the present. Currently, it includes functions that scrape the online community on element14.com. Those functions could easily be modified to scrape any other Jive-powered community forum. Of course, the search keywords can also be changed to modify the type of text that is extracted. In its current form, the script outputs a `.csv` in the working directory with text snippets, URL's, and dates of writing. Run it in the command line with `python past_scraper.py`.
+
+`snippet_labeler.py` is the script for labeling the text data with sentiment values using the Stanford software. Make sure that the Stanford software is installed (see note below) and that a `.csv` file with text data in the format outputted by `past_scraper.py` is in the working directory. Run the script on the command line with `python snippet_labeler.py`. It asks for the names of the input and output `.csv` files, and then runs the operations.
+
+After labeling the text data with sentiment values, load the `.csv` file into R and start text mining.
 
 NOTE:
 ---
