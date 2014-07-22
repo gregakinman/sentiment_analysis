@@ -12,7 +12,7 @@ import os, subprocess
 def main():
 
     """
-    Uses Python as a cross-platform interface to access the command line to run CoreNLP.
+    Uses Python as a cross-platform interface to access the command line to run CoreNLP. So, basically, we're using Python to run the native command-line language to then run Java...languages on languages.
     """
 
     # Assembles the needed .jar files.

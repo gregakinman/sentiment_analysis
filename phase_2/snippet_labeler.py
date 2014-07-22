@@ -98,7 +98,6 @@ def xml_to_csv(filenames, input_filename, output_filename):
     # Parses the .xml files to get all the sentiment values into a list.
     sentiment_values = []
     counter = 0
-    print
     for filepath in filenames:
         soup = BS(open(filepath + ".xml", "rb"), "xml")
         xml_sentences = soup.find_all("sentence")
@@ -111,8 +110,6 @@ def xml_to_csv(filenames, input_filename, output_filename):
         sentiment_values.append(concatenated_values)
         counter += 1
         if not counter % 10:
-            print "Processed through snippet " + str(counter) + " of " str(len(filenames)) + "."
-    print
     sentiment_values = sentiment_values[1:]
 
     # Creates the output .csv file, appending the sentiment values to it with a new rightmost column.
