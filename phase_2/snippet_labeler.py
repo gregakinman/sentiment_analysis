@@ -20,24 +20,16 @@ def main():
     """
 
     # Gets the input and output filenames from the user and asks to proceed.
-    print
-    print "Please enter the name of the input .csv file:"
-    print
+    print "\nPlease enter the name of the input .csv file:\n"
     input_filename = raw_input()
-    print
-    print "Okay, now please enter the desired output .csv filename:"
-    print
+    print "\nOkay, now please enter the desired output .csv filename:\n"
     output_filename = raw_input()
-    print
-    print "Thanks! The file will be passed to the CoreNLP software."
-    print "The output .csv file will be placed in the current directory."
-    print
-    print "There's about to be a lot of console output; ignore it. Type c and hit Enter to continue."
-    print
-    pdb.set_trace()
+    print "\nThanks! The file will be passed to the CoreNLP software.\nThe output .csv file will be placed in the current directory.\n"
 
     # Gets just the text snippets from the input .csv file and puts them into .txt files to be passed to CoreNLP.
     filenames = csv_to_txt(input_filename)
+    print "\nThe text data is prepared to be passed to CoreNLP. There's about to be a lot of console output; ignore it. Type c and hit enter/return to continue.\n"
+    pdb.set_trace()
 
     # Runs CoreNLP.
     run_core_nlp.main()
@@ -98,11 +90,15 @@ def xml_to_csv(filenames, input_filename, output_filename):
     """
     Writes the output .csv file given the labeled sentences.
 
-
+    1. filenames:          str: the filepaths of the files containing the sentences
+    2. input_filename:     str: the name of the input .csv file
+    3. output_filename:    str: the desired name of the output .csv file
     """
 
     # Parses the .xml files to get all the sentiment values into a list.
     sentiment_values = []
+    counter = 0
+    print
     for filepath in filenames:
         soup = BS(open(filepath + ".xml", "rb"), "xml")
         xml_sentences = soup.find_all("sentence")
@@ -113,6 +109,10 @@ def xml_to_csv(filenames, input_filename, output_filename):
         for value in intermediate_values:
             concatenated_values += value
         sentiment_values.append(concatenated_values)
+        counter += 1
+        if not counter % 10:
+            print "Processed through snippet " + str(counter) + " of " str(len(filenames)) + "."
+    print
     sentiment_values = sentiment_values[1:]
 
     # Creates the output .csv file, appending the sentiment values to it with a new rightmost column.
