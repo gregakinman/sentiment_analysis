@@ -13,14 +13,7 @@ from datetime import datetime
 from bs4 import BeautifulSoup as BS
 from nltk.tokenize.punkt import PunktSentenceTokenizer as ST
 
-GLOBAL_KEYWORDS = [
-                    "freescale", "i.mx", "kinetis", "mpu", "mcu", "microcontroller", "microprocessor", "dsp",
-                    "digital signal processor", "analog", "rf", "radio frequency", "sensor", "iot",
-                    "internet of things", "ioe", "internet of everything", "pmic", "ti", "texas instruments",
-                    "qualcomm", "broadcom", "analog devices", "stm", "stmicroelectronics", "atmel", "cavium",
-                    "infineon", "intel", "maxell", "microchip", "soc", "nxp", "nec", "renesas", "riotboard",
-                    "riot board"
-]
+GLOBAL_KEYWORDS = ["freescale", "i.mx", "kinetis", "qoriq", "riotboard", "riot board"]
 
 def main():
 
@@ -55,17 +48,14 @@ def element_14_scraper():
     1. element_14_snippets:     list of lists of strs and ints: text snippets with metadata about them
     """
 
-    # Split URL's to stay within 120 columns.
     base_url_1 = "http://www.element14.com/community/content?filterID=all~objecttype~objecttype%5Bthread%5D&filterID=al"
     base_url_2 = "l~language~language%5Bcpl%5D&ICID=menubar_content_discussions&query="
-
-    # Modification for testing purposes.
-    GLOBAL_KEYWORDS = ["freescale"]
 
     element_14_snippets = []
     start_index = 0
     # Searches the online forum using each global keyword (which is probably actually an unrealistic thing to do...).
     for keyword in GLOBAL_KEYWORDS:
+        print "\nSearching for keyword '" + keyword + "'...\n"
         at_end = False
         page_counter = 0
         # While not on the last search results page:
@@ -73,7 +63,7 @@ def element_14_scraper():
             url = base_url_1 + base_url_2 + keyword + "&start=" + str(start_index)
             if at_element_14_end(url):
                at_end = True
-            # Gets the URL's for each thread in the page of search results.
+            # Gets the URLs for each thread in the page of search results.
             post_urls = element_14_post_url_getter(url)
             url_counter = 0
             for post_url in post_urls:
@@ -168,7 +158,7 @@ def element_14_page_getter(url):
         if html.count("jive-rendered-content") < 3:
             at_end = True
 
-        page_snippets = element_14_snippet_getter(page_url, ["freescale", "i.mx", "kinetis", "mcu", "riot board"])
+        page_snippets = element_14_snippet_getter(page_url)
 
         for snippet in page_snippets:
             post_snippets.append(snippet)
