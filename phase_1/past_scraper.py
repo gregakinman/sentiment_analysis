@@ -31,7 +31,7 @@ def main():
     # Writes the text and metadata to a CSV file.
     with open("element_14_snippets.csv", "wb") as f:
         csv_writer = csv.writer(f)
-        csv_writer.writerow(["Text Snippet", "URL" "Found", "Day", "Month", "Year"])
+        csv_writer.writerow(["Snippet", "URL", "Day", "Month", "Year"])
         for snippet in element_14_snippets:
             try:
                 csv_writer.writerow(snippet)
