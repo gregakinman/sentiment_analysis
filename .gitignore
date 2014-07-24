@@ -8,5 +8,5 @@ test.py
 *.txt
 snippet_files/
 
-# Stanford CoreNLP software (too big for GitHub; note made in README.md of this)
+# Stanford CoreNLP software (too big for GitHub; note made in README of this)
 phase_2/stanford-corenlp-full-2014-06-16/
