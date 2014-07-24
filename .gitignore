@@ -1,6 +1,7 @@
-# OS files and compiled source:
+# OS files, compiled source, and tests:
 .DS_Store
 *.pyc
+test.py
 
 # Data created in the process that's unimportant to the process itself:
 *.csv
