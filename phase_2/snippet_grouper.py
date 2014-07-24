@@ -16,9 +16,9 @@ def main():
     Main function.
     """
 
-    print "Please name the .csv file in which the text data resides:"
+    print "\nPlease name the .csv file in which the text data resides:\n"
     csv_filename = raw_input()
-    print "Thanks! The text will be placed, sentence by sentence, into filenames of form value_#.csv. Hit 'c' and enter/return to continue."
+    print "\nThanks! The text will be placed, sentence by sentence, into filenames of form value_#.csv. Hit 'c' and enter/return to continue.\n"
     pdb.set_trace()
 
     grouper(csv_filename)
