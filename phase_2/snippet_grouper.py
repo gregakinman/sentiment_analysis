@@ -22,13 +22,9 @@ with open(csv_filename, "rb") as f:
         if counter == 0:
             counter += 1
             continue
-        print "\n" + str(row) + "\n"
         sentiments = str(row[-1])
-        print sentiments
         snippets = tokenizer.tokenize(row[0])
-        print "\n" + str(snippets) + "\n"
         for i in range(len(sentiments)):
-            print i
             groups[int(sentiments[i])].append(snippets[i])
 
 score_classes = {}
@@ -36,4 +32,8 @@ for group in groups:
     if groups[group]:
         score_classes[group] = groups[group]
 
-print score_classes
+for score in score_classes:
+    with open("value_" + str(score) + ".csv", "wb") as f:
+        writer = csv.writer(f)
+        for snippet in score_classes[score]:
+            writer.writerow([snippet])
