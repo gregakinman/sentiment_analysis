@@ -42,7 +42,7 @@ def main():
 def element_14_scraper():
 
     """
-    Scrapes element14.com for text about Freescale and its competitors.
+    Scrapes element14.com for text about Freescale.
 
     Output:
     1. element_14_snippets:     list of lists of strs and ints: text snippets with metadata about them
