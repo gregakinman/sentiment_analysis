@@ -46,9 +46,10 @@ def grouper(csv_filename):
             sentiments = str(row[-1])
             snippets = tokenizer.tokenize(row[0])
             url = row[1]
+            date = [row[2], row[3], row[4]]
             for i in range(len(sentiments)):
                 try:
-                    groups[int(sentiments[i])].append([snippets[i], url])
+                    groups[int(sentiments[i])].append([snippets[i], url, date[0], date[1], date[2]])
                 except IndexError:
                     continue
 
@@ -60,7 +61,7 @@ def grouper(csv_filename):
     for score in score_classes:
         with open("value_" + str(score) + ".csv", "wb") as f:
             writer = csv.writer(f)
-            writer.writerow(["Snippets", "URLs"])
+            writer.writerow(["Snippets", "URL", "Date"])
             for snippet in score_classes[score]:
                 writer.writerow(snippet)
 
