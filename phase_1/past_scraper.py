@@ -227,15 +227,16 @@ def element_14_snippet_getter(url, keywords=GLOBAL_KEYWORDS):
                     else:
                         subsnippet = intermediate_snippets[j-1:j+offset]
                     # Puts the individual sentences back together.
-                    token = ""
+                    tokens = []
                     for sentence in subsnippet:
                         stripped = sentence.lstrip().rstrip().encode("UTF-8")
-                        token += stripped + " "
-                    try:
-                        if len(token) < 1500:
-                            snippets.append([token, url, dates[i][0], dates[i][1], dates[i][2]])
-                    except IndexError:
-                        continue
+                        tokens.append(stripped)
+                    for token in tokens:
+                        try:
+                            if len(token) < 1500:
+                                snippets.append([token, url, dates[i][0], dates[i][1], dates[i][2]])
+                        except IndexError:
+                            continue
 
     return snippets
 
