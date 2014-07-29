@@ -21,31 +21,12 @@ def main():
     Driver function. Call whatever functions from below that are necessary.
     """
 
-    # Gets the text snippets and prepares them for writing to a file.
-    unformatted_element_14_snippets = element_14_scraper()
-    element_14_snippets = []
-    for snippet in unformatted_element_14_snippets:
-        snippet[0].replace(",", "")
-        element_14_snippets.append(snippet)
-
-    # Writes the text and metadata to a CSV file.
-    with open("element_14_snippets.csv", "wb") as f:
-        csv_writer = csv.writer(f)
-        csv_writer.writerow(["Snippet", "URL", "Day", "Month", "Year"])
-        for snippet in element_14_snippets:
-            try:
-                csv_writer.writerow(snippet)
-            except UnicodeEncodeError:
-                print "UnicodeEncodeError thrown. Skipped offending snippet (probably unimportant)."
-                continue
+    element_14_scraper()
 
 def element_14_scraper():
 
     """
     Scrapes element14.com for text about Freescale.
-
-    Output:
-    1. element_14_snippets:     list of lists of strs and ints: text snippets with metadata about them
     """
 
     base_url_1 = "http://www.element14.com/community/content?filterID=all~objecttype~objecttype%5Bthread%5D&filterID=al"
@@ -82,7 +63,23 @@ def element_14_scraper():
 
     print "\nElement 14 domain scrape completed. " + str(len(element_14_snippets)) + " snippets found."
 
-    return element_14_snippets
+    # Gets the text snippets and prepares them for writing to a file.
+    unformatted_element_14_snippets = element_14_scraper()
+    element_14_snippets = []
+    for snippet in unformatted_element_14_snippets:
+        snippet[0].replace(",", "")
+        element_14_snippets.append(snippet)
+
+    # Writes the text and metadata to a CSV file.
+    with open("element_14_past_snippets.csv", "wb") as f:
+        csv_writer = csv.writer(f)
+        csv_writer.writerow(["Snippet", "URL", "Day", "Month", "Year"])
+        for snippet in element_14_snippets:
+            try:
+                csv_writer.writerow(snippet)
+            except UnicodeEncodeError:
+                print "UnicodeEncodeError thrown. Skipped offending snippet (probably unimportant)."
+                continue
 
 def at_element_14_end(url):
 
