@@ -61,7 +61,7 @@ def grouper(csv_filename):
     for score in score_classes:
         with open("value_" + str(score) + ".csv", "wb") as f:
             writer = csv.writer(f)
-            writer.writerow(["Snippets", "URL", "Date"])
+            writer.writerow(["Snippets", "URL", "Day", "Month", "Year"])
             for snippet in score_classes[score]:
                 writer.writerow(snippet)
 
