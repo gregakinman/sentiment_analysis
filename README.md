@@ -21,7 +21,7 @@ This repository includes a web scraper that should work for most, if not all, Ji
 
 Copy the outputted `.csv` file of the text data to `phase_2.` Each row of this `.csv` file has the following columns, in order: `Snippet`, `URL`, `Day`, `Month`, `Year` (of writing).
 
-Run `phase_2/snippet_labeler.py` on the `.csv` file to append another column on each row, `Sentiment`, that contains the sentiment score for each text snippet, on a scale of 0 to 4, 0 being very negative, 2 being neutral, and 4 being very positive. This is the scoring method that the SentimentPipeline on the Stanford CoreNLP software uses. `phase_2/snippet_labeler.py` calls `phase_2/run_core_nlp.py` to spawn a JVM in a system subprocess on which the Stanford software runs. It's been tested and works on both Windows 7 and OS X platforms; by extension it should work on a Linux platform such as a server, since Linux and OS X systems share the Unix shell.
+Run `phase_2/snippet_labeler.py` on the `.csv` file to append another column on each row, `Sentiment`, that contains the sentiment score for each text snippet, on a scale of 0 to 4, 0 being very negative, 2 being neutral, and 4 being very positive. This is the scoring method that the SentimentPipeline on the Stanford CoreNLP software uses. `phase_2/snippet_labeler.py` calls `phase_2/run_core_nlp.py` to spawn a JVM in a system subprocess on which the Stanford software runs. It's been tested and works on both Windows 7 and OS X platforms; by extension, it should work on a Linux platform such as a server, since both OS X and Linux are Unix-based.
 
 To group the snippets into different `.csv` files according to sentiment value, run the `phase_2/snippet_grouper.py` script. At that point, the data is ready for mining.
 
